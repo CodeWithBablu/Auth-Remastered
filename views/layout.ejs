@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    <%= title %>
+  </title>
+
+  <!-- noty -->
+  <link rel="shortcut icon" href="/images/logo/logo.svg" type="image/x-icon">
+  <link rel='stylesheet' href='/stylesheets/tailwind.css' />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
+
+</head>
+
+<body>
+
+  <div class=" px-2 md:px-[5%] h-screen w-full">
+    <nav>
+      <%- include('./partials/nav'); %>
+    </nav>
+    <main><%- body %></main>
+    <footer>
+      <%- include('./partials/footer'); %>
+    </footer>
+  </div>
+
+  <!-- ion icons -->
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+  <script>
+    <% if (flash.success && flash.success.length > 0) {%>
+
+      new Noty({
+        theme: 'bootstrap-v4',
+        text: '<h3><%= flash.success%></h3>',
+        type: 'success',
+        layout: 'topRight',
+        progressBar: true,
+        timeout: 3000
+      }).show();
+    <% } %>
+
+    <% if (flash.error && flash.error.length > 0) {%>
+      new Noty({
+        theme: 'bootstrap-v4',
+        text: '<%= flash.error%>',
+        type: 'error',
+        layout: 'topRight',
+        progressBar: true,
+        timeout: 3000
+      }).show();
+    <% } %>
+
+  </script>
+</body>
+
+</html>

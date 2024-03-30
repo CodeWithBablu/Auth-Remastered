@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+@font-face {
+  font-family: "Pp Neue Machina";
+  src: url("/fonts/PP_Neue_Machina_Inktrap_Medium.woff");
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer {
+  :root {
+    --salmon: salmon;
+    --scrollPrimary: salmon;
+    --scrollSecondary: #18181b;
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollPrimary) var(--scrollSecondary);
+  }
+
+  *::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: var(--scrollPrimary);
+  }
+
+  *::-webkit-scrollbar-track {
+    background: var(--scrollSecondary);
+  }
+
+  body {
+    background-color: #18181b;
+    color: #f3f4f6;
+  }
+}
