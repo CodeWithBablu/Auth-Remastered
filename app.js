@@ -5,6 +5,9 @@ const db = require("./config/db");
 const port = process.env.PORT || 3000;
 
 const express = require("express");
+const passport = require("passport");
+const passportLocal = require("./config/passport/local.strategy");
+const { setUserAsLocals } = require("./config/passport/passport.helper");
 const expressLayouts = require("express-ejs-layouts");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
@@ -31,6 +34,8 @@ if (process.env.NODE_ENV === "dev") {
 
   app.use(connectLiveReload());
 }
+//serving the static files
+app.use(express.static(path.join(__dirname, "public")));
 
 //handle sessions
 app.use(
@@ -40,7 +45,7 @@ app.use(
     saveUninitialized: false,
     resave: false,
     cookie: {
-      maxAge: 1000 * 60 * 90,
+      maxAge: 1000 * 60 * 2,
     },
     store: mongoStore.create(
       {
@@ -54,8 +59,13 @@ app.use(
   })
 );
 
-//serving the static files
-app.use(express.static(path.join(__dirname, "public")));
+// init passport on every route call.(i.e attach passport object to req)
+app.use(passport.initialize());
+// allow passport to use "express-session"(i.e to persist user, store user ans retrieve user)
+app.use(passport.session());
+// this set res.locals.user= req.user if user is authenticated
+// ( so that we can access user info in ejs template )
+app.use(setUserAsLocals);
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -63,6 +73,7 @@ app.set("view engine", "ejs");
 app.use(expressLayouts);
 
 //// app.use(logger("dev"));
+
 //to convert json payload into javascript object
 app.use(express.json());
 //for parsing the form data into urlencoded format

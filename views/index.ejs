@@ -1,8 +1,58 @@
 <link rel='stylesheet' href='/stylesheets/index.css' />
-<div class=" w-full pt-20 h-screen">
-  <h1>
-    <%= title %>
-  </h1>
-  <p class=" font-neumachina text-xl">Welcome to <%= title %>
-  </p>
+<div class=" w-full pt-32 h-screen font-poppins">
+  <section class="relative wrapper py-10 rounded-b-3xl overflow-hidden">
+    <div class=" flex flex-col items-start gap-5 lg:flex-row lg:justify-between pt-10 px-8 lg:p-20">
+
+      <div class="lSide flex flex-col w-full z-20 mb-[3.6rem] lg:mb-0">
+        <article
+          class=" mb-20 leading-none text-left text-[3.6rem] md:text-[4.2rem] lg:text-[7.2rem] font-comfortaa font-semibold">
+          <h1 class=" relative block max-w-[54rem] mb-3 lg:mb-10">
+            <span>Secure access <span class="inline-block">for</span></span>
+            <span
+              class="inline-block lg:absolute w-fit px-4 py-2 bg-gradient-to-r from-indigo-600 to-amber-200 bg-clip-text text-transparent border-2 border-gray-300 rounded-3xl">
+              <span class="">
+                <span class="">
+                  <div class="">developers</div>
+                </span>
+              </span>
+            </span>
+          </h1>
+
+          <h1 class=" flex flex-col lg:flex-row gap-4 max-w-[70rem]">
+            <span>But not</span>
+            <span
+              class="inline-block w-fit px-4 py-2 bg-gradient-to-r from-indigo-500 to-teal-300 bg-clip-text text-transparent border-2 border-gray-300 rounded-3xl">
+              <span class="">
+                <span class="">
+                  <div class="">attackers</div>
+                </span>
+              </span>
+            </span>
+          </h1>
+
+        </article>
+
+        <div class="contact-us relative flex flex-col gap-5 lg:gap-0 lg:flex-row items-center lg:max-w-[48.8rem]">
+          <input
+            class=" w-full rounded-xl p-10 text-3xl border-[1px] lg:border-none border-zinc-400 outline-none  font-medium bg-zinc-900"
+            placeholder="Your email" type="text">
+          <button
+            class="block lg:absolute right-4 w-full lg:w-60 py-4 rounded-lg text-2xl font-medium bg-indigo-600">Get
+            Started</button>
+        </div>
+      </div>
+
+      <div class="z-10 rSide h-[20rem] mb-[-4.2rem] lg:mb-0 lg:h-[40rem] xl:h-full">
+        <img class=" h-full w-full" src="/images/home/loginbox.svg" alt="">
+      </div>
+
+    </div>
+
+    <picture class="z-0 absolute bottom-0 left-0 right-0 w-[180%] h-auto lg:w-full"><img class=" w-full"
+        src="/images/home/gradient-bg.svg" alt="">
+    </picture>
+    <picture class="z-0 absolute bottom-[-1rem] right-[-3rem] h-[24rem] lg:h-full"><img class=" h-full w-full"
+        src="/images/home/facets.svg" alt="">
+    </picture>
+  </section>
 </div>

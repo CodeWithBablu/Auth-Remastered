@@ -43,7 +43,6 @@ module.exports = {
         508: "508px",
       },
       height: {
-        80: "80px",
         150: "150px",
         225: "225px",
         300: "300px",
@@ -80,6 +79,7 @@ module.exports = {
       fontFamily: {
         neumachina: ["Pp Neue Machina", "sans-serif"],
         poppins: ["Poppins", "sans-serif"],
+        comfortaa: ["Comfortaa", "sans-serif"],
       },
     },
   },

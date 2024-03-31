@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap");
 @font-face {
   font-family: "Pp Neue Machina";
   src: url("/fonts/PP_Neue_Machina_Inktrap_Medium.woff");
@@ -33,7 +33,10 @@
     background: var(--scrollSecondary);
   }
 
+  html,
   body {
+    box-sizing: border-box;
+    font-size: 10px;
     background-color: #18181b;
     color: #f3f4f6;
   }

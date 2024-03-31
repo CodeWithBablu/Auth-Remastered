@@ -6,15 +6,18 @@ const nodemailer = require("../config/nodemailer");
 const User = require("../config/models/user.model");
 const Token = require("../config/models/token.model");
 
+//// signIn
 module.exports.signIn = (req, res) => {
   res.render("signin", { title: "Login" });
 };
 
+//// signUp
 module.exports.signUp = (req, res) => {
   res.render("signup", { title: "SignUp" });
 };
 
 //explore andrew course
+//// Create new user using email & pass
 module.exports.create = async (req, res) => {
   try {
     const { name, email, password, cpassword } = req.body;
@@ -65,6 +68,7 @@ module.exports.create = async (req, res) => {
   }
 };
 
+//// verify email
 module.exports.verifyEmail = async (req, res) => {
   const genToken = req.query.token;
   console.log(genToken);
@@ -86,9 +90,21 @@ module.exports.verifyEmail = async (req, res) => {
     return res.redirect("/auth/signup");
   }
 
+  // set isVerified as true and save the user
   user.isVerified = true;
   await user.save();
   req.flash("success", "Email Verified SuccessFully Please Login");
   await Token.deleteOne(token);
   return res.redirect("/auth/signin");
+};
+
+//// create session when user login
+module.exports.createSession = async (req, res) => {
+  try {
+    req.flash("success", "Logged in Successfully");
+    return res.redirect("/");
+  } catch (error) {
+    console.log("Error in creating session : ", error);
+    return res.redirect("back");
+  }
 };
