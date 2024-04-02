@@ -12,7 +12,7 @@
 @layer {
   :root {
     --salmon: salmon;
-    --scrollPrimary: salmon;
+    --scrollPrimary: #818cf8;
     --scrollSecondary: #18181b;
   }
 

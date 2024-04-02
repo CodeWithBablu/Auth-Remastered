@@ -1,0 +1,50 @@
+.identity {
+  background-image: url("/images/home/identityBg.svg");
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: 100%;
+}
+
+.loginboxes-container {
+  transition: transform 1s ease-in-out;
+}
+
+.gradientword-1 {
+  transition: width 1.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.gradientword-2 {
+  transition: width 1.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.gradientword-1 .slide-enter-active,
+.gradientword-2 .slide-enter-active {
+  animation: slide-enter-active 1.5s ease-in 1 forwards;
+}
+
+.gradientword-1 .slide-exit-active,
+.gradientword-2 .slide-exit-active {
+  animation: slide-exit-active 1.5s ease-out 1 forwards;
+}
+
+@keyframes slide-enter-active {
+  from {
+    transform: translateY(0%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(-100%);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-exit-active {
+  from {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-200%);
+    opacity: 0;
+  }
+}

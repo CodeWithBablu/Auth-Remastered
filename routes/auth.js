@@ -16,4 +16,30 @@ router.post(
   homeController.createSession
 );
 
+//google authentitcation
+router.get(
+  "/google",
+  passport.authenticate("google", { scope: ["profile", "email"] })
+);
+
+router.get(
+  "/google/callback",
+  passport.authenticate("google", { failureRedirect: "/auth/signin" }),
+  homeController.createSession
+);
+
+//facebook
+
+//facebook authentication
+router.get(
+  "/facebook",
+  passport.authenticate("facebook", { scope: ["profile", "email"] })
+);
+
+router.get(
+  "/facebook/callback",
+  passport.authenticate("facebook", { failureRedirect: "/auth/signin" }),
+  homeController.createSession
+);
+
 module.exports = router;

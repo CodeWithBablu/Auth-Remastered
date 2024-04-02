@@ -1,43 +1,51 @@
 <link rel='stylesheet' href='/stylesheets/index.css' />
-<div class=" w-full pt-32 h-screen font-poppins">
-  <section class="relative wrapper py-10 rounded-b-3xl overflow-hidden">
+<div class=" w-full py-32 font-poppins">
+
+  <section class="hero relative py-10 rounded-b-3xl bg-zinc-950 overflow-hidden">
     <div class=" flex flex-col items-start gap-5 lg:flex-row lg:justify-between pt-10 px-8 lg:p-20">
 
       <div class="lSide flex flex-col w-full z-20 mb-[3.6rem] lg:mb-0">
-        <article
-          class=" mb-20 leading-none text-left text-[3.6rem] md:text-[4.2rem] lg:text-[7.2rem] font-comfortaa font-semibold">
-          <h1 class=" relative block max-w-[54rem] mb-3 lg:mb-10">
+        <article class=" mb-20 leading-none text-left text-[3.6rem] lg:text-[6rem] font-comfortaa font-semibold">
+          <h1 class=" relative block max-w-[52rem] mb-3 lg:mb-10">
             <span>Secure access <span class="inline-block">for</span></span>
-            <span
-              class="inline-block lg:absolute w-fit px-4 py-2 bg-gradient-to-r from-indigo-600 to-amber-200 bg-clip-text text-transparent border-2 border-gray-300 rounded-3xl">
-              <span class="">
-                <span class="">
-                  <div class="">developers</div>
+
+            <span class=" inline-block lg:absolute">
+              <div id="gradientword-1"
+                class="gradientword-1 grid grid-flow-row h-[5rem] lg:h-[7.2rem] overflow-clip px-4 w-fit whitespace-nowrap border-2 border-gray-300 rounded-3xl">
+
+                <span class=" inline-block bg-gradient-to-r from-indigo-600 to-amber-200 bg-clip-text text-transparent">
+                  online shoppers
                 </span>
-              </span>
+
+              </div>
             </span>
+
+
           </h1>
 
-          <h1 class=" flex flex-col lg:flex-row gap-4 max-w-[70rem]">
-            <span>But not</span>
-            <span
-              class="inline-block w-fit px-4 py-2 bg-gradient-to-r from-indigo-500 to-teal-300 bg-clip-text text-transparent border-2 border-gray-300 rounded-3xl">
-              <span class="">
-                <span class="">
-                  <div class="">attackers</div>
+          <h1 class=" flex flex-col lg:flex-row gap-4 max-w-[75rem]">
+            <span class=" whitespace-nowrap">But not</span>
+
+            <span class="inline-block">
+              <div id="gradientword-2"
+                class="gradientword-2 grid grid-flow-row h-[5rem] lg:h-[7.2rem] overflow-clip px-4 py-2 w-fit whitespace-nowrap border-2 border-gray-300 rounded-3xl">
+
+                <span class="bg-gradient-to-r from-indigo-500 to-teal-300 bg-clip-text text-transparent">
+                  scammmers
                 </span>
-              </span>
+
+              </div>
             </span>
+
           </h1>
 
         </article>
 
         <div class="contact-us relative flex flex-col gap-5 lg:gap-0 lg:flex-row items-center lg:max-w-[48.8rem]">
           <input
-            class=" w-full rounded-xl p-10 text-3xl border-[1px] lg:border-none border-zinc-400 outline-none  font-medium bg-zinc-900"
+            class=" w-full rounded-3xl p-12 bg-zinc-950 text-3xl border-[1px] lg:border-none border-zinc-400 outline-none  font-medium"
             placeholder="Your email" type="text">
-          <button
-            class="block lg:absolute right-4 w-full lg:w-60 py-4 rounded-lg text-2xl font-medium bg-indigo-600">Get
+          <button class="block lg:absolute right-4 w-full lg:w-60 py-4 rounded-lg text-2xl font-medium bg-blue-700">Get
             Started</button>
         </div>
       </div>
@@ -55,4 +63,55 @@
         src="/images/home/facets.svg" alt="">
     </picture>
   </section>
+
+  <section class="headshot flex flex-col lg:flex-row items-center gap-5 lg:gap-36 px-8 lg:px-20 pt-32">
+
+    <div class="lSide w-[20rem] lg:w-[70rem] h-[30rem] lg:h-auto rounded-3xl bg-white overflow-clip">
+
+      <div id="loginboxes-container" class="loginboxes-container flex flex-row w-fit">
+
+        <img class=" w-full h-full" src="/images/home/WeTransfer.png" alt="">
+
+        <img class=" w-full h-full" src="/images/home/Toast.png" alt="">
+
+        <img class=" w-full h-full" src="/images/home/Pfizer.png" alt="">
+
+        <img class=" w-full h-full" src="/images/home/Zoom.png" alt="">
+
+      </div>
+
+
+    </div>
+
+    <div class="rSide font-poppins">
+      <h3 class=" text-center text-zinc-400 text-[2rem] font-medium">YOUR APP</h3>
+      <h1 class=" font-semibold text-[3rem] lg:text-[5rem]">Implement Authentication in any application in just five
+        minutes</h1>
+      <h3 class=" font-medium text-[1.5rem] lg:text-[2rem] text-gray-400">With a few lines of code you can have
+        Authentication integrated in any app written in any language, and any framework.
+        We provide 30+ SDKs & Quickstarts to help you succeed on your implementation</h3>
+    </div>
+  </section>
+
+
+  <section class="py-32">
+
+    <div class="identity rounded-t-[4rem] py-20 w-full">
+      <div class="max-w-[80rem] px-8 lg:px-20 lg:max-w-[95rem]">
+        <h1 class=" font-neumachina font-bold text-[3rem] md:text-[5rem] lg:text-[6rem]">Identity is so much more than
+          just the login
+          box
+        </h1>
+        <h3 class=" font-medium text-[2rem] md:text-[2.5rem] text-zinc-400">You can do much more with us</h3>
+      </div>
+
+    </div>
+
+  </section>
+
+  <footer class="">
+    <%- include('./partials/footer'); %>
+  </footer>
+
+  <script src="/javascripts/index.js"></script>
 </div>

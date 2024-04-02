@@ -102,7 +102,7 @@ module.exports.verifyEmail = async (req, res) => {
 module.exports.createSession = async (req, res) => {
   try {
     req.flash("success", "Logged in Successfully");
-    return res.redirect("/");
+    return res.redirect("/profile");
   } catch (error) {
     console.log("Error in creating session : ", error);
     return res.redirect("back");

@@ -5,59 +5,63 @@
     <img class=" w-full h-full object-cover" src="/images/common/login.jpg" alt="">
   </div>
 
-  <div class="login relative z-20 w-full h-full flex justify-center items-center">
+  <div class="login relative z-20 w-full h-full flex justify-center items-center px-3 md:px-0">
 
     <div class="flex w-full sm:w-[500px] lg:w-[700px] rounded-xl bg-blackAplha600 p-5 sm:p-10">
 
       <div class="w-1/3 hidden lg:flex justify-center items-center">
-        <div class=" text-teal-500 p-3 border-b-2 border-r-2 rounded-xl border-indigo-500">
-          <h1 class=" text-5xl font-neumachina font-bold">Auth</h1>
-          <h3 class=" text-zinc-300 text-lg">Re-mastered</h3>
+        <div class=" text-teal-500 p-5 border-t-2 border-l-2 rounded-xl border-sky-500">
+          <h1 class=" text-7xl font-neumachina font-bold">Auth</h1>
+          <h3 class=" text-zinc-300 text-3xl">Re-mastered</h3>
         </div>
       </div>
 
       <div class="w-full lg:w-2/3 flex justify-center">
 
-        <div class="flex flex-col flex-grow items-center gap-3 md:gap-5">
+        <div class="flex flex-col flex-grow items-center gap-5 md:gap-10">
 
-          <h1 class="text-3xl md:text-5xl font-poppins font-semibold">LoGin</h1>
+          <h1 class="text-5xl md:text-7xl font-poppins font-semibold">LoGin</h1>
 
-          <div
-            class="w-full text-lg md:text-xl flex gap-2 items-center justify-center rounded-md bg-gray-600/30 p-2 md:p-4">
-            <div class="w-6 h-6"><img class="w-full h-full object-cover" src="/images/logo/google.svg" alt=""></div>
-            <h2>SignIn with Google</h2>
+          <div onclick="window.location.href='/auth/google'"
+            class="w-full cursor-pointer text-2xl md:text-3xl flex gap-2 items-center justify-center py-4 md:py-6 rounded-md bg-gray-600/30">
+            <div class=" w-[70%] sm:w-[60%] flex items-center gap-8">
+              <img class="w-12 h-12 object-cover" src="/images/logo/google.svg" alt="">
+              <h2>Continue with Google</h2>
+            </div>
           </div>
 
-          <div
-            class="w-full text-lg md:text-xl flex gap-2 items-center justify-center rounded-md bg-gray-600/30 p-2 md:p-4">
-            <div class="w-6 h-6"><img class="w-full h-full object-cover" src="/images/logo/facebook.svg" alt=""></div>
-            <h2>SignIn with facebook</h2>
+          <div onclick="window.location.href='/auth/facebook'"
+            class="w-full cursor-pointer text-2xl md:text-3xl flex gap-2 items-center justify-center py-4 md:py-6 rounded-md bg-gray-600/30">
+            <div class=" w-[70%] sm:w-[60%] flex items-center gap-8">
+              <img class="w-12 h-12 object-cover" src="/images/logo/facebook.svg" alt="">
+              <h2>Continue with facebook</h2>
+            </div>
           </div>
 
-          <div class=" m-auto">--------------- or ----------------</div>
+          <div class=" m-auto text-3xl">--------------- or ----------------</div>
 
-          <form class=" flex flex-col gap-4 w-full" action="/auth/create-session" method="post">
+          <form class=" flex flex-col gap-6 w-full" action="/auth/create-session" method="post">
             <input
-              class=" w-full px-6 py-3 text-lg rounded-md outline-none border-2 border-zinc-700 bg-zinc-900 focus:border-indigo-200"
+              class=" w-full px-8 py-6 text-3xl rounded-md outline-none border-2 border-zinc-700 bg-zinc-950 focus:border-indigo-200"
               type="text" name="email" id="email" placeholder="Email" autocomplete="on" required>
 
             <input
-              class=" w-full px-6 py-3 text-lg rounded-md outline-none border-2 border-zinc-700 bg-zinc-900 focus:border-indigo-200"
+              class=" w-full px-8 py-6 text-3xl rounded-md outline-none border-2 border-zinc-700 bg-zinc-950 focus:border-indigo-200"
               type="password" name="password" id="password" placeholder="Password" autocomplete="current-password"
               required>
 
             <!-- <div class="g-recaptcha" data-sitekey="6LfddKgpAAAAAOXVhgw38mcATYmisO_cswENpw3t"></div> -->
-            <span class="text-md md:text-lg">
+            <span class="text-xl md:text-3xl">
               Ready to join our wacky club?
               <a href="/auth/signup"><b class=" cursor-pointer text-blue-400 underline">SignUp </b></a>
             </span>
 
-            <div class=" flex justify-between items-center w-full">
+            <div class=" flex justify-between items-center mt-4 w-full">
 
-              <a class=" text-indigo-300 font-medium underline" href="">Forgot password?</a>
+              <a class=" text-indigo-300 text-3xl font-medium underline" href="">Forgot password?</a>
 
               <button
-                class="w-44 text-xl font-poppins font-semibold text-gray-800 bg-gradient-to-r from-gray-100 to-rose-500 to-80% px-6 py-2 rounded-md"
+                class="w-60 sm:w-72 text-3xl font-poppins font-semibold text-gray-800 bg-gradient-to-r from-gray-100 to-rose-500 to-80% px-8 py-4 rounded-md"
                 type="submit">
                 SignIn
               </button>
@@ -72,5 +76,9 @@
     </div>
 
   </div>
+
+  <footer class="fixed bottom-10 left-0 right-0">
+    <%- include('./partials/footer'); %>
+  </footer>
 
 </div>

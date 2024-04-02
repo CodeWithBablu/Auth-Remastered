@@ -11,12 +11,22 @@
     </div>
 
     <ul class=" flex items-center text-3xl gap-10 sm:gap-20">
-      <li class=" font-medium text-gray-400 hover:text-gray-50 cursor-pointer">Home</li>
-      <li class=" font-medium text-gray-400 hover:text-gray-50 cursor-pointer">Profile</li>
-      <li class=" font-medium text-gray-400 hover:text-gray-50 cursor-pointer">
-        <!-- <ion-icon name="person-circle-outline" size="large"></ion-icon> -->
-        <img class=" w-16 h-16" src="/images/common/profile.png" alt="">
+      <li onclick="window.location.href='/'" class=" font-medium text-gray-400 hover:text-gray-50 cursor-pointer">Home
       </li>
+      <li onclick="window.location.href='/profile'"
+        class=" font-medium text-gray-400 hover:text-gray-50 cursor-pointer">Profile</li>
+
+      <% if (user.picture && user.picture.length>0) { %>
+        <li class=" font-medium text-gray-400 hover:text-gray-50 cursor-pointer">
+          <!-- <ion-icon name="person-circle-outline" size="large"></ion-icon> -->
+          <img class=" w-16 h-16" src="<%= user.picture%>" alt="">
+        </li>
+        <% } else { %>
+          <li class=" font-medium text-gray-400 hover:text-gray-50 cursor-pointer">
+            <!-- <ion-icon name="person-circle-outline" size="large"></ion-icon> -->
+            <img class=" w-16 h-16" src="/images/common/profile.png" alt="">
+          </li>
+          <% } %>
     </ul>
 
   </div>

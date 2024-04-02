@@ -12,6 +12,7 @@ module.exports.isLoggedIn = (req, res, next) => {
 };
 
 module.exports.setUserAsLocals = (req, res, next) => {
+  res.locals.user = {};
   if (req.isAuthenticated()) res.locals.user = req.user;
   next();
 };
