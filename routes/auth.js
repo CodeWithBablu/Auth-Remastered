@@ -10,6 +10,7 @@ router.get("/reset-request", homeController.resetRequest);
 router.get("/reset-password", homeController.resetPassword);
 
 router.get("/verify", homeController.verifyEmail);
+router.get("/logout", homeController.destroySession);
 
 router.post("/reset-link", homeController.resetLink);
 router.post("/create", homeController.create);

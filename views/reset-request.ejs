@@ -5,9 +5,10 @@
 
     <div class=" z-20 flex flex-col justify-center gap-5 w-full">
 
-      <h1 class=" text-zinc-950 text-3xl sm:text-4xl font-neumachina">Please enter your email ...</h1>
-      <span class=" text-2xl sm:text-3xl font-medium text-indigo-700">( We will send a reset link )</span>
-      <form class="z-20 flex flex-col gap-8 w-full" action="/auth/reset-link" method="post">
+      <h1 class=" text-zinc-950 text-3xl sm:text-4xl font-neumachina">Please enter your email</h1>
+      <span class=" text-2xl sm:text-3xl font-medium text-indigo-700">Dispatching password rescue mission to your
+        inbox ...</span>
+      <form class="z-20 flex flex-col gap-8 w-full" action="/auth/reset-link?page=reset-request" method="post">
         <input
           class=" w-full px-8 py-6 sm:py-8 text-3xl rounded-xl outline-none ring-2 ring-zinc-700 bg-zinc-950 focus:ring-pink-500"
           type="text" name="email" id="email" placeholder="Email" autocomplete="on" required>

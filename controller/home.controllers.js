@@ -114,20 +114,124 @@ module.exports.createSession = async (req, res) => {
   }
 };
 
+//// create session when user login
+module.exports.destroySession = async (req, res) => {
+  try {
+    req.logout((err) => {
+      if (err) return done(err);
+    });
+    req.flash("success", "Logout Successfull !!");
+    res.clearCookie("Auth");
+    return res.redirect("/");
+  } catch (error) {
+    console.log("Error in destroying session : ", error);
+    req.flash("error", "Unable to logout !!");
+    return res.redirect("/");
+  }
+};
+
 //// reset Request page
 module.exports.resetRequest = (req, res) => {
   return res.render("reset-request", { title: "Reset Request" });
 };
 
 //// reset passpord page
-module.exports.resetPassword = (req, res) => {
-  return res.render("reset-password", { title: "Reset Password" });
+module.exports.resetPassword = async (req, res) => {
+  const genToken = req.query.token;
+
+  if (genToken.length > 0) {
+    let token = await Token.findOne({ token: genToken });
+
+    if (!token) {
+      req.flash(
+        "error",
+        "We were unable to find a valid token.Your token may have expired."
+      );
+      return res.redirect("/auth/reset-request");
+    }
+
+    return res.render("reset-password", { title: "Reset Password" });
+  } else return res.render("reset-password", { title: "Reset Password" });
 };
 
 //// reset Passpord request
-module.exports.resetLink = (req, res) => {
+module.exports.resetLink = async (req, res) => {
   try {
-    console.log(req.path);
+    const page = req.query.page;
+
+    //// if reuest is from reset-request page
+    if (page === "reset-request") {
+      const { email } = req.body;
+      const user = await User.findOne({ email });
+      if (!user) {
+        req.flash(
+          "error",
+          "Email not found 🥶. Please enter valid email or signup"
+        );
+        return res.redirect("back");
+      }
+
+      const genToken = crypto.randomBytes(20).toString("hex");
+
+      const token = await Token.create({
+        userId: user._id,
+        token: genToken,
+      });
+
+      await token.save();
+
+      const link = `${process.env.BASE_URL}/auth/reset-password?token=${genToken}`;
+      await nodemailer.sendMail(
+        email,
+        "Oh No! You've Forgotten Your Password! !! 🤪",
+        `Hey there! Stay calm and click the link to reset your password ${link}\n\nNote: If you find your password hanging out on a sunny beach somewhere, tell it we miss it and it needs to come back home! 🏖️🌴`,
+        "/reset.pass.email.ejs",
+        link
+      );
+      req.flash("success", "Password reset link send to email !!");
+      return res.redirect("/");
+    }
+
+    //// if request is from reset-password page
+    else if (page === "reset-password") {
+      // const genToken = req.query.token;
+
+      const { email, password, cpassword, token: genToken } = req.body;
+
+      let token = await Token.findOne({ token: genToken });
+
+      if (!token) {
+        req.flash(
+          "error",
+          "We were unable to find a valid token.Your token may have expired."
+        );
+        return res.redirect("/auth/signup");
+      }
+
+      if (password !== cpassword) {
+        req.flash("error", "Confirm password not matched 🥺!!");
+        // return res.redirect(`/auth/reset-password?token=${genToken}`);
+        return res.redirect(`back`);
+      }
+
+      // find matching user
+      const user = await User.findOne({ _id: token.userId, email });
+      if (!user) {
+        req.flash("error", "We were unable to find a user for this token.");
+        // return res.redirect(`/auth/reset-password?token=${genToken}`);
+        return res.redirect(`back`);
+      }
+
+      const salt = 10;
+      const hashedPasswod = await bcrypt.hash(password, salt);
+      user.password = hashedPasswod;
+      await user.save();
+      await Token.deleteOne(token);
+      req.flash("success", "Password reset successful 😘🎉");
+      return res.redirect("/auth/signin");
+    } else {
+      return res.redirect("/");
+    }
   } catch (error) {
     console.log("Error in resetting passpord");
     req.flash("error", "Error in resetting passpord");

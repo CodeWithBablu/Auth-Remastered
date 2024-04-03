@@ -34,7 +34,7 @@
   <script>
     <% if (flash.success && flash.success.length > 0) {%>
       new Noty({
-        theme: 'sunset',
+        theme: 'bootstrap-v4',
         text: '<h3><%= flash.success%></h3>',
         type: 'success',
         layout: 'topRight',
@@ -44,7 +44,7 @@
 
     <% if (flash.error && flash.error.length > 0) {%>
       new Noty({
-        theme: 'sunset',
+        theme: 'bootstrap-v4',
         text: '<%= flash.error%>',
         type: 'error',
         layout: 'topRight',
