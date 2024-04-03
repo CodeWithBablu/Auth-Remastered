@@ -56,7 +56,13 @@ module.exports.create = async (req, res) => {
       await token.save();
 
       const link = `${process.env.BASE_URL}/auth/verify?token=${genToken}`;
-      await nodemailer.sendMail(email, "", link);
+      await nodemailer.sendMail(
+        email,
+        "🎉 Welcome to the Fun Club! 🎉",
+        `Hey there! Welcome to the Fun Club! 🎉\n\nTo join the party, please click on the following link to verify your email address: ${link}\n\nIf you're not feeling fun today, just ignore this message and we'll pretend it never happened. But where's the fun in that? 😜`,
+        "/verify.email.ejs",
+        link
+      );
       req.flash("success", "Email verification link sent to your email!!");
       return res.redirect("back");
     } else {
@@ -71,7 +77,6 @@ module.exports.create = async (req, res) => {
 //// verify email
 module.exports.verifyEmail = async (req, res) => {
   const genToken = req.query.token;
-  console.log(genToken);
 
   let token = await Token.findOne({ token: genToken });
 
@@ -106,5 +111,25 @@ module.exports.createSession = async (req, res) => {
   } catch (error) {
     console.log("Error in creating session : ", error);
     return res.redirect("back");
+  }
+};
+
+//// reset Request page
+module.exports.resetRequest = (req, res) => {
+  return res.render("reset-request", { title: "Reset Request" });
+};
+
+//// reset passpord page
+module.exports.resetPassword = (req, res) => {
+  return res.render("reset-password", { title: "Reset Password" });
+};
+
+//// reset Passpord request
+module.exports.resetLink = (req, res) => {
+  try {
+    console.log(req.path);
+  } catch (error) {
+    console.log("Error in resetting passpord");
+    req.flash("error", "Error in resetting passpord");
   }
 };

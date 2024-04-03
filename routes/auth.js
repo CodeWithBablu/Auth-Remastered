@@ -6,8 +6,12 @@ const homeController = require("../controller/home.controllers");
 
 router.get("/signin", homeController.signIn);
 router.get("/signup", homeController.signUp);
+router.get("/reset-request", homeController.resetRequest);
+router.get("/reset-password", homeController.resetPassword);
 
 router.get("/verify", homeController.verifyEmail);
+
+router.post("/reset-link", homeController.resetLink);
 router.post("/create", homeController.create);
 
 router.post(
@@ -27,8 +31,6 @@ router.get(
   passport.authenticate("google", { failureRedirect: "/auth/signin" }),
   homeController.createSession
 );
-
-//facebook
 
 //facebook authentication
 router.get(

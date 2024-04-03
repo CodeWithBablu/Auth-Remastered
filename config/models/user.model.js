@@ -13,7 +13,8 @@ const userSchema = new mongoose.Schema(
     },
     picture: {
       type: String,
-      defaultValue: "",
+      required: true,
+      default: "/images/common/user.jpg",
     },
     password: {
       type: String,
@@ -21,7 +22,7 @@ const userSchema = new mongoose.Schema(
     },
     isVerified: {
       type: Boolean,
-      defaultValue: false,
+      default: false,
     },
   },
   {

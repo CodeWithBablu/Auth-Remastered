@@ -47,7 +47,7 @@ app.use(
     saveUninitialized: false,
     resave: false,
     cookie: {
-      maxAge: 1000 * 60 * 2,
+      maxAge: 1000 * 60 * 10,
     },
     store: mongoStore.create(
       {
@@ -61,14 +61,6 @@ app.use(
   })
 );
 
-// init passport on every route call.(i.e attach passport object to req)
-app.use(passport.initialize());
-// allow passport to use "express-session"(i.e to persist user, store user ans retrieve user)
-app.use(passport.session());
-// this set res.locals.user= req.user if user is authenticated
-// ( so that we can access user info in ejs template )
-app.use(setUserAsLocals);
-
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
@@ -81,6 +73,14 @@ app.use(express.json());
 //for parsing the form data into urlencoded format
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+// init passport on every route call.(i.e attach passport object to req)
+app.use(passport.initialize());
+// allow passport to use "express-session"(i.e to persist user, store user ans retrieve user)
+app.use(passport.session());
+// this set res.locals.user= req.user if user is authenticated
+// ( so that we can access user info in ejs template )
+app.use(setUserAsLocals);
 
 // flash
 app.use(flash());

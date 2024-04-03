@@ -31,8 +31,26 @@
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
+  <script>
+    <% if (flash.success && flash.success.length > 0) {%>
+      new Noty({
+        theme: 'sunset',
+        text: '<h3><%= flash.success%></h3>',
+        type: 'success',
+        layout: 'topRight',
+        timeout: 3000
+      }).show();
+    <% } %>
 
-
+    <% if (flash.error && flash.error.length > 0) {%>
+      new Noty({
+        theme: 'sunset',
+        text: '<%= flash.error%>',
+        type: 'error',
+        layout: 'topRight',
+        timeout: 3000
+      }).show();
+    <% } %>
   </script>
 </body>
 

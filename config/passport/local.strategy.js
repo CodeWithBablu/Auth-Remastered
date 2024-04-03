@@ -30,7 +30,6 @@ passport.use(
       //check password is correct
       const isPasswordMatched = bcrypt.compareSync(password, user.password);
       if (!isPasswordMatched) {
-        console.log(password);
         req.flash("error", "Invalid password. please try again 😵️!!");
         return done(null, false, { message: "wrong password" });
       }

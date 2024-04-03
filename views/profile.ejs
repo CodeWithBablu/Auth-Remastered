@@ -6,18 +6,19 @@
     <div class="z-10 relative flex flex-col items-center gap-10 lg:gap-0 lg:flex-row w-full h-full">
 
       <div class=" lside w-full lg:w-1/3 h-full flex justify-center rounded-[3rem]">
-        <div class="w-fit h-[30rem] flex flex-col justify-end p-10 bg-blackAplha600 rounded-b-full">
-          <img class="w-[15rem] h[15rem] rounded-full" src="<%= user.picture %>" alt="">
+        <div class="w-fit h-[30rem] flex flex-col justify-end p-10 rounded-b-full bg-blackAplha900">
+          <img class="w-[15rem] h[15rem] rounded-full" src='<%=user.picture %>' alt="">
         </div>
       </div>
 
       <div class="rside text-3xl p-5 lg:p-20 lg:min-h-[50rem] flex flex-col lg:justify-center gap-5 font-medium">
 
-        <div class=" space-y-5">
-          <h1 class=" font-neumachina text-6xl lg:text-8xl">
+        <div class=" flex flex-col gap-10">
+          <h1
+            class=" font-poppins text-6xl lg:text-8xl bg-gradient-to-br from-pink-600 from-20% to-zinc-800 text-transparent bg-clip-text">
             <%= user.name %>
           </h1>
-          <h3 class=" text-2xl lg:text-3xl font-comfortaa font-bold text-lime-500">
+          <h3 class=" text-2xl lg:text-4xl self-end font-comfortaa font-bold text-zinc-800">
             <%= user.email %>
           </h3>
         </div>
@@ -38,8 +39,8 @@
 
     </div>
 
-    <div class=" z-0 absolute bottom-0 left-0 h-[180%] w-[200%]">
-      <img class=" w-full h-full object-cover" src="/images/home/gradient-bg.svg" alt="">
+    <div class=" z-0 absolute bottom-0 left-0 h-[130%] w-[100%] blur-3xl">
+      <img class=" w-full h-full object-cover" src="/images/profile/profilebg.jpg" alt="">
     </div>
 
   </div>

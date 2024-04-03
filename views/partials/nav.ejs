@@ -1,4 +1,7 @@
-<nav class="z-30 absolute top-0 left-0 w-full bg-blackAplha500 backdrop-blur-sm text-white font-poppins">
+<link rel="stylesheet" href="/stylesheets/nav.css">
+<script src="/javascripts/nav.js"></script>
+
+<nav class="z-30 absolute top-0 left-0 w-full bg-blackAplha600 backdrop-blur-xl text-white font-poppins">
 
   <div class="wrapper flex items-center justify-between px-8 lg:px-20 py-10 w-full max-w-[144rem] m-auto">
 
@@ -10,23 +13,36 @@
       </div>
     </div>
 
-    <ul class=" flex items-center text-3xl gap-10 sm:gap-20">
-      <li onclick="window.location.href='/'" class=" font-medium text-gray-400 hover:text-gray-50 cursor-pointer">Home
-      </li>
-      <li onclick="window.location.href='/profile'"
-        class=" font-medium text-gray-400 hover:text-gray-50 cursor-pointer">Profile</li>
+    <ul class=" relative flex items-center text-3xl gap-10 sm:gap-20">
+      <li class=" font-medium text-gray-400 hover:text-gray-50 cursor-pointer"><a href="/">Home</a></li>
 
-      <% if (user.picture && user.picture.length>0) { %>
-        <li class=" font-medium text-gray-400 hover:text-gray-50 cursor-pointer">
-          <!-- <ion-icon name="person-circle-outline" size="large"></ion-icon> -->
-          <img class=" w-16 h-16" src="<%= user.picture%>" alt="">
-        </li>
-        <% } else { %>
-          <li class=" font-medium text-gray-400 hover:text-gray-50 cursor-pointer">
-            <!-- <ion-icon name="person-circle-outline" size="large"></ion-icon> -->
-            <img class=" w-16 h-16" src="/images/common/profile.png" alt="">
-          </li>
-          <% } %>
+      <li id="dropDownBtn" class=" font-medium text-gray-400 hover:text-gray-50 cursor-pointer">
+        <% if (user.picture && user.picture.length>0) { %>
+          <img class=" w-16 h-16 rounded-full" src="<%= user.picture%>" alt="">
+          <% } else { %>
+            <img class=" w-16 h-16 rounded-full" src="/images/common/profile.png" alt="">
+            <% } %>
+      </li>
+
+      <div id="dropdown-menu" class="dropdown-menu w-[20rem] hidden absolute right-0 mt-5 top-full"
+        aria-labelledby="navbarDropdown">
+
+        <div
+          class=" flex flex-col gap-5 rounded-3xl bg-zinc-900 ring-1 ring-pink-600 shadow-xl shadow-pink-600/60 backdrop-blur-sm p-3">
+          <a class="dropdown-item text-zinc-300 hover:text-gray-50 px-5 py-3 rounded-2xl hover:bg-zinc-700/70 "
+            href="/profile">profile</a>
+
+          <hr class=" border-zinc-500">
+          <% if (Object.keys(user).length>0) { %>
+            <a class="dropdown-item text-zinc-300 hover:text-gray-50 px-5 py-3 rounded-2xl hover:bg-zinc-700/70 "
+              href="/auth/logout">logout</a>
+            <% } else { %>
+              <a class="dropdown-item text-zinc-300 hover:text-gray-50 px-5 py-3 rounded-2xl hover:bg-zinc-700/70 "
+                href="/auth/signin">signin</a>
+              <% } %>
+        </div>
+
+      </div>
     </ul>
 
   </div>

@@ -1,0 +1,34 @@
+.dropdown-menu {
+  opacity: 1;
+  transform: translateY(0rem);
+}
+
+.dropdown-menu.close {
+  animation: popupCloseAnimation 0.5s ease forwards;
+}
+
+.dropdown-menu.show {
+  animation: popupAnimation 0.5s ease forwards;
+}
+
+@keyframes popupAnimation {
+  from {
+    opacity: 0;
+    transform: translateY(-5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0rem);
+  }
+}
+
+@keyframes popupCloseAnimation {
+  from {
+    opacity: 1;
+    transform: translateY(0rem);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-5rem);
+  }
+}

@@ -32,15 +32,15 @@ const renderTemplate = (relativePath, data) => {
   return mailTemplate;
 };
 
-const sendMail = async (email, subject, link) => {
+const sendMail = async (email, subject, text, relativePath, link) => {
   try {
-    const htmlTemplate = renderTemplate("/verify.email.ejs", { link });
+    const htmlTemplate = renderTemplate(relativePath, { link });
 
     const mailOptions = {
       from: process.env.USER_EMAIL,
       to: email,
-      subject: "🎉 Welcome to the Fun Club! 🎉" || subject,
-      text: `Hey there! Welcome to the Fun Club! 🎉\n\nTo join the party, please click on the following link to verify your email address: ${link}\n\nIf you're not feeling fun today, just ignore this message and we'll pretend it never happened. But where's the fun in that? 😜`,
+      subject: subject,
+      text: text,
       html: htmlTemplate,
     };
 
