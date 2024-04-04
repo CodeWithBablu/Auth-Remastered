@@ -99,14 +99,14 @@ npm start
   
   USER_EMAIL= (for nodemailer)
   USER_PASS="App password google"
+
+  <!-- to setup google authentication -->
+  
+  G_CLIENT_ID=
+  G_CLIENT_SECRET=
+  G_CALL_BACK=
+
 ```
-
-<!-- to setup google authentication -->
-
-G_CLIENT_ID=
-G_CLIENT_SECRET=
-G_CALL_BACK=
-
 <h2>💻 Built with</h2>
 
 Technologies used in the project:
