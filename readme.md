@@ -38,7 +38,7 @@
 
 <br><br><b> profile Page </b><br><br>
 
-![profile](https://github.com/CodeWithBablu/Auth-Remastered/assets/59352323/37817564-a5be-40fc-bda1-98b75cc79b8f)
+![profile](https://github.com/CodeWithBablu/Auth-Remastered/assets/59352323/f9ef1c43-dc9b-40c0-944f-ab8e30b3ba57)
 
 
 
@@ -78,8 +78,29 @@ npm start
 <p>4. Then simply start your app</p>
 
 **Extra configuration**
-  -  tailwindcss 
+  -  tailwindcss
+  -  for those who don't want to dig in
+  -  .env file setup
+```
+  BASE_URL= (your web app base url)
+  PORT=
+  SESSION_SECRET=
+  
+  NODE_ENV= options("dev","prod")
+  MONGO_URL= (your database url)
+  
+  SITE_KEY= (for recapcha)
+  SITE_SECRET= (for recapcha)
+  
+  USER_EMAIL= (for nodemailer)
+  USER_PASS="App password google"
+```
 
+<!-- to setup google authentication -->
+
+G_CLIENT_ID=
+G_CLIENT_SECRET=
+G_CALL_BACK=
 
 <h2>💻 Built with</h2>
 
