@@ -8,12 +8,12 @@ const Token = require("../config/models/token.model");
 
 //// signIn
 module.exports.signIn = (req, res) => {
-  res.render("signin", { title: "Login" });
+  return res.render("signin", { title: "Login" });
 };
 
 //// signUp
 module.exports.signUp = (req, res) => {
-  res.render("signup", { title: "SignUp" });
+  return res.render("signup", { title: "SignUp" });
 };
 
 //explore andrew course
@@ -24,7 +24,7 @@ module.exports.create = async (req, res) => {
     if (password !== cpassword) {
       console.log("password does not match");
       req.flash("error", "Confirm password not matched!!");
-      res.redirect("back");
+      return res.redirect("back");
     }
 
     //check if user already exits
@@ -67,7 +67,7 @@ module.exports.create = async (req, res) => {
       return res.redirect("back");
     } else {
       req.flash("success", "Email already exists. Please login!!");
-      res.redirect("/auth/signin");
+      return res.redirect("/auth/signin");
     }
   } catch (error) {
     console.log("Error in create user controller ", error);
@@ -210,7 +210,6 @@ module.exports.resetLink = async (req, res) => {
 
       if (password !== cpassword) {
         req.flash("error", "Confirm password not matched 🥺!!");
-        // return res.redirect(`/auth/reset-password?token=${genToken}`);
         return res.redirect(`back`);
       }
 
@@ -218,7 +217,6 @@ module.exports.resetLink = async (req, res) => {
       const user = await User.findOne({ _id: token.userId, email });
       if (!user) {
         req.flash("error", "We were unable to find a user for this token.");
-        // return res.redirect(`/auth/reset-password?token=${genToken}`);
         return res.redirect(`back`);
       }
 
