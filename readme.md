@@ -8,11 +8,11 @@
 
 <h2>A Glimpse Behind the Curtain :</h2>
 
-<br><br><b><i>Home </i> </b> <br><br>
+<br><br><b>Home</b><br><br>
 
 ![home](https://github.com/CodeWithBablu/Auth-Remastered/assets/59352323/d3c3461f-3911-4763-81bb-f89199f6484c)
 
-<br><br><b><i> Sign-in Page </i> </b> <br><br>
+<br><br><b> Sign-in Page </b> <br><br>
 
 ![signin](https://github.com/CodeWithBablu/Auth-Remastered/assets/59352323/8b3c799a-9f0a-49a3-8be1-758eb523e869)
 
@@ -20,7 +20,7 @@
 
 ![email verification](https://github.com/CodeWithBablu/Auth-Remastered/assets/59352323/667edb38-aa9b-481d-8d27-3786bf535c7a)
 
-<br><br><b><i>Sign-up Page </i> </b> <br><br>
+<br><br><b> Sign-up Page </b><br><br>
 
 ![signup](https://github.com/CodeWithBablu/Auth-Remastered/assets/59352323/a36b3fe8-3e6f-4306-b7ba-930e61581fce)
 
@@ -38,7 +38,12 @@
 
 <br><br><b> profile Page </b><br><br>
 
-![profile](https://github.com/CodeWithBablu/Auth-Remastered/assets/59352323/f9ef1c43-dc9b-40c0-944f-ab8e30b3ba57)
+![profile](https://github.com/CodeWithBablu/Auth-Remastered/assets/59352323/0712f679-71c0-4a12-a1c7-9685845e0763)
+
+<br><br><b> Error Page: to look back to your deeds  </b><br><br>
+
+![error](https://github.com/CodeWithBablu/Auth-Remastered/assets/59352323/b2ab29d4-cefe-46f9-9b9b-909d6f5e79ed)
+
 
 
 
