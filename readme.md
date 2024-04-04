@@ -6,6 +6,11 @@
 
 <b>[Live Demo](https://authsystem.up.railway.app/)</b>
 
+<h2> Demo of my litle venture ==> have a look 🧐 </h2>
+
+https://github.com/CodeWithBablu/Auth-Remastered/assets/59352323/0dedef0f-7980-42a3-b5b0-ca8f4fa48dc0
+
+
 <h2>A Glimpse Behind the Curtain :</h2>
 
 <br><br><b>Home</b><br><br>
@@ -43,10 +48,6 @@
 <br><br><b> Error Page: to look back to your deeds  </b><br><br>
 
 ![error](https://github.com/CodeWithBablu/Auth-Remastered/assets/59352323/b2ab29d4-cefe-46f9-9b9b-909d6f5e79ed)
-
-<h2> Demo of my litle venture ==> have a look 🧐 </h2>
-
-https://github.com/CodeWithBablu/Auth-Remastered/assets/59352323/0dedef0f-7980-42a3-b5b0-ca8f4fa48dc0
 
 
 
