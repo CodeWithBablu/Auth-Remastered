@@ -32,7 +32,7 @@ passport.use(
         }
       } catch (err) {
         console.log("Error in the passport-facebook-strategy " + err);
-        return;
+        return done(err);
       }
     }
   )
